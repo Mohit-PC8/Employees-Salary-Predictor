@@ -542,11 +542,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Display the styled table
+# Reset index to start at 1 before displaying
+styled_df.index = range(1, len(styled_df)+1)
 st.table(styled_df.style
-         .set_properties(**{'background-color': 'transparent', 
-                           'color': '#2c3e50',
-                           'border': 'none'})
-         .hide(axis='index'))
+         .set_properties(**{'background-color': 'white',
+                           'color': 'black',
+                           'border': '1px solid #e0e0e0'}))
 
 # Close the card div
 st.markdown("</div>", unsafe_allow_html=True)
@@ -580,7 +581,7 @@ with col2:
             """, unsafe_allow_html=True)
 
 # Additional information section
-with st.expander("📊 How This Prediction Works ", expanded=False):
+with st.expander("📊 Projects Workflow ", expanded=False):
     st.markdown("""
 1) Data Collection: We start by collecting employee data such as age, gender, education level, job title, experience, and salary.
 
